@@ -91,4 +91,9 @@ right connector from last child*/
     inset 0 0 0 3px #EFEFEF,
     inset 0 0 8px black,    
     0 0 10px rgba(0, 0, 0, 0.2);
+    /* background-color: cyan; */
+}
+
+.visited{
+    background-color: cyan;
 }
