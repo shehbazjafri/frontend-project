@@ -13,6 +13,9 @@
 <body>
     <section class="section">
         <div class="wrapper">
+            <div id="description">
+              
+            </div>
             <div id="traversal-selection">
                 <div class="dropdown is-hoverable">
                     <div class="dropdown-trigger">
@@ -37,23 +40,39 @@
                             <a href="#" class="dropdown-item">
                                 Breadth-First Traversal
                             </a>
-
                         </div>
                     </div>
                 </div>
+                <a class="button is-success is-rounded">Play
+                </a>
+                <a class="button is-danger is-rounded">Stop
+                </a>
             </div>
-            <div id="description">
 
-            </div>
-            <div id="tree">
-
+            <div id="tree" class="tree">
+                <ul>
+                    <li><span class="node-value">34</span>
+                        <ul>
+                            <li><span class="node-value">23</span>
+                                <ul>
+                                    <li><span class="node-value">12</span></li>
+                                    <li><span class="node-value">04</span>
+                                        <ul>
+                                            <li><span class="node-value">16</span></li>
+                                            <li><span class="node-value">09</span></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="node-value">92</span></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
 
             <div id="order-of-traversal">
 
             </div>
-
-        </div>
     </section>
 
 
