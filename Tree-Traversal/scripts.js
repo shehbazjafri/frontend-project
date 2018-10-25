@@ -6,7 +6,17 @@ var tree = {
     children: [{
             value: 23,
             elem: "",
-            children: []
+            children: [{
+                    value: 12,
+                    elem: "",
+                    children: []
+                },
+                {
+                    value: 04,
+                    elem: "",
+                    children: []
+                }
+            ]
 
         },
         {
@@ -43,7 +53,7 @@ function bfs(tree) {
 }
 
 function inorder() {
-
+    
 }
 
 
@@ -54,14 +64,14 @@ function postorder() {
 (function getTree() {
     let parents = document.getElementById('tree').getElementsByTagName('ul');
     let tree = parents[0];
+    console.log(tree);
     let treeJSON = domJSON.toJSON(tree, {
-        domProperties: {
-            exclude: true,
-            values: ['clientHeight', 'clientLeft', 'clientTop', 'offsetWidth', 'offsetHeight', 'offsetLeft', 'offsetTop', 'offsetWidth', 'scrollHeight', 'scrollLeft', 'scrollTop', 'scrollWidth']
-        },
+        attributes: [false],
+        domProperties: [false, 'childElementCount', 'childNodes', 'firstChild', 'innerText','style'],
+        metadata: false
     });
     console.log(treeJSON);
-    
+
     // Object.entries(tree).forEach(([key, value]) => {
     //     if (key == "value")
     //         console.log(value);
