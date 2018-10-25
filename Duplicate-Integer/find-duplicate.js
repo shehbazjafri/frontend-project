@@ -1,7 +1,7 @@
 let list = [2,3,1,3];
 
 function findDuplicate(list){
-    let i=0,currPos=0,currVal,goTo,visited;
+    let i=0,currPos=0,currVal,goTo;
     console.log(list);
     while(i<list.length){
         if(i==0){ //not jumped yet, so don't mark
@@ -22,14 +22,15 @@ function findDuplicate(list){
              list[currPos] = -1;
              console.log("Now list is "+ list);
              //edge case
-             //if(i==list.length-1)
-             //currPos = list.length-1;
-             //else
+            //  if(i==list.length-2)
+            //  currPos = list.length-1;
+            //  else
              currPos = goTo-1;
              console.log("I'm now at index " + currPos);
+            
         }
-        
         i++;
+        
     }
 
 };
