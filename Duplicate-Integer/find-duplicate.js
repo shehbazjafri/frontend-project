@@ -1,40 +1,24 @@
-let list = [2,3,1,3];
+let list = [1,1,2,2,3,5];
 
-function findDuplicate(list){
-    let i=0,currPos=0,currVal,goTo;
-    console.log(list);
-    while(i<list.length){
-        if(i==0){ //not jumped yet, so don't mark
-            goTo = list[currPos];
-            console.log("Go to " + goTo);
-            currPos = goTo-1;
-            console.log("I'm at index "+currPos);
+function findDuplicate(list) {
+    console.log("List = " + list);
+    let size = list.length;
+    for (let i = 0; i < size; i++) {
+        let value = list[i];
+        if (value > size) {
+            value = value - size;
         }
-        else{
-             if(list[currPos]==-1){
-                 console.log(currVal);
-                 return;
-             }
-             currVal = list[currPos];
-             console.log("Current value is "+ currVal);
-             goTo = list[currPos];
-             console.log("Go to " + goTo);
-             list[currPos] = -1;
-             console.log("Now list is "+ list);
-             //edge case
-            //  if(i==list.length-2)
-            //  currPos = list.length-1;
-            //  else
-             currPos = goTo-1;
-             console.log("I'm now at index " + currPos);
-            
+        let next = list[value - 1];
+        if (next < size) {
+            list[value - 1] += size;
+            continue;
+        } else {
+            console.log("DUPLICATE = " +value);
+            return;
         }
-        i++;
-        
     }
+}
 
-};
-
-(function run(){
+(function run() {
     findDuplicate(list);
 })();
