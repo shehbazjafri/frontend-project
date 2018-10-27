@@ -7,6 +7,19 @@
     padding: 1em;
 }
 
+.traversal-order-nested{
+	display:grid;
+	grid-template-columns: repeat(8,1fr);
+	grid-auto-rows: 100px;
+	grid-gap: 0.5em;
+}
+
+.traversal-order-nested > div{
+	border: #333 2px solid;
+	font-size: 16px;
+	align-items: center;
+}
+
 /* Tree CSS */
 .tree ul {
 	padding-top: 20px; position: relative;
@@ -91,7 +104,6 @@ right connector from last child*/
     inset 0 0 0 3px #EFEFEF,
     inset 0 0 8px black,    
     0 0 10px rgba(0, 0, 0, 0.2);
-    /* background-color: cyan; */
 }
 
 .visited{

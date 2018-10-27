@@ -9,6 +9,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <script src="lib/domJSON/dist/domJSON.min.js"></script>
+    <script src="scripts.js"></script>
 </head>
 
 <body>
@@ -17,15 +18,13 @@
             <div id="description">
                 <article class="message is-info">
                     <div class="message-header">
-                        <p>In-Order Traversal</p>
+                        <p id="desc-title">In-Order Depth-First Traversal</p>
                     </div>
-                    <div class="message-body">
+                    <div id="desc-body" class="message-body">
                         <ol>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum libero nobis dicta ipsam
-                                cupiditate ea qui. Minus quia alias tenetur!</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, animi.</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. A accusantium aperiam ex in
-                                perspiciatis magni!</li>
+                            <li>Traverse the left subtree, i.e., call Inorder(left-subtree)</li>
+                            <li>Visit the root.</li>
+                            <li>Traverse the right subtree, i.e., call Inorder(right-subtree)</li>
                         </ol>
                     </div>
                 </article>
@@ -34,7 +33,7 @@
                 <div class="dropdown is-hoverable">
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                            <span>Select Traversal</span>
+                            <span id="selected-option">In-Order Depth-First Traversal</span>
                             <span class="icon is-small">
                                 <i class="fas fa-angle-down" aria-hidden="true"></i>
                             </span>
@@ -42,55 +41,59 @@
                     </div>
                     <div class="dropdown-menu" id="dropdown-menu" role="menu">
                         <div class="dropdown-content">
-                            <a href="#" class="dropdown-item">
+                            <a href="#" onclick="selectTraversal(1)" class="dropdown-item">
                                 In-Order Depth-First Traversal
                             </a>
-                            <a class="dropdown-item">
+                            <a href="#" onclick="selectTraversal(2)" class="dropdown-item">
                                 Pre-Order Depth-First Traversal
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="#" onclick="selectTraversal(3)" class="dropdown-item">
                                 Post-Order Depth-First Traversal
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="#" onclick="selectTraversal(4)" class="dropdown-item">
                                 Breadth-First Traversal
                             </a>
                         </div>
                     </div>
                 </div>
-                <a class="button is-success is-rounded">Play
+                <a onclick="play()" href="#" class="button is-success is-rounded">Play
                 </a>
-                <a class="button is-danger is-rounded">Stop
+                <a onclick="stop()" href="#" class="button is-danger is-rounded">Stop
                 </a>
+
             </div>
 
             <div id="tree" class="tree">
                 <ul>
-                    <li><span class="node-value">34</span>
+                    <li><span id="34" class="node-value">34</span>
                         <ul>
-                            <li><span class="node-value">23</span>
+                            <li><span id="23" class="node-value">23</span>
                                 <ul>
-                                    <li><span class="node-value">12</span></li>
-                                    <li><span class="node-value">04</span>
+                                    <li><span id="12" class="node-value">12</span></li>
+                                    <li><span id="4" class="node-value">04</span>
                                         <ul>
-                                            <li><span class="node-value">16</span></li>
-                                            <li><span class="node-value">09</span></li>
+                                            <li><span id="16" class="node-value">16</span></li>
+                                            <li><span id="9" class="node-value">09</span></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li><span class="node-value">92</span></li>
+                            <li><span id="92" class="node-value">92</span></li>
                         </ul>
                     </li>
                 </ul>
             </div>
 
             <div id="order-of-traversal">
-                
+                <p class="title">Order of Traversal</p>
+                <div id="order-tile" class="tile">
+                    <div id="traversal-order" class="traversal-order-nested">
+
+                    </div>
+                </div>
             </div>
     </section>
 
-
-    <script src="scripts.js"></script>
 </body>
 
 </html>
