@@ -61,10 +61,10 @@ function preorder() {
 
 
 function bfs() {
-    if (stopped) {
-        return;
-    }
     setTimeout(function () {
+        if (stopped) {
+            return;
+        }
         let value = breadth[ind];
         let node = document.getElementById(value);
         node.classList.add('visited');
