@@ -1,5 +1,8 @@
 let list = [1,1,2,2,3,5];
-
+ /*If value > size, take it in a var and subtract size to get original value and use it
+  to find next, else directly use it to get next value*/
+//If next value < size, add size to value and continue
+//If next value > size, then it was modified before, so it is a duplicate
 function findDuplicate(list) {
     console.log("List = " + list);
     let size = list.length;
@@ -14,7 +17,7 @@ function findDuplicate(list) {
             continue;
         } else {
             console.log("DUPLICATE = " +value);
-            return;
+            return value;
         }
     }
 }
