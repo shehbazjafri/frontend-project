@@ -1,44 +1,29 @@
+/*
+When user selects a traversal - selection text in dropdown, description title, and description is
+updated and stop() is called to stop animation if it's running.
+Play button runs play() which gets the selected traversal option and executes the corresponding
+function.
+Each traversal function, for each value traversed, calls visitElement() which marks the node,
+and calls addOrder() which adds that value in a div on the right side
+Each traversal function runs on 1 second interval
+Stop button marks the global value "stopped" to true, and this value is checked in each traversal,
+if it is true, it calls stop() which calls clearTree() and clearOrder() to remove 
+"visited" class from each node and clear "Order of Traversal" from the right side respectively
+The global value "ind" is set to zero when animation is stopped to again start the next animation
+appropriately 
+*/
 var stopped = false;
 var ind = 0;
 var pre = [34, 23, 12, 4, 16, 9, 92];
-var inord = [23, 12, 4, 16, 9, 34, 92];
-var post = [23, 12, 4, 16, 9, 92, 34];
+var inord = [12, 23, 16, 4, 9, 34, 92];
+var post = [12, 16, 9, 4, 23, 92, 34];
 var breadth = [34, 23, 92, 12, 4, 16, 9];
 var descriptions = ["<ol><li>Traverse the left subtree, i.e., call Inorder(left-subtree)</li><li>Visit the root.</li><li>Traverse the right subtree, i.e., call Inorder(right-subtree)</li></ol>", "<ol><li>Visit the root.</li><li>Traverse the left subtree, i.e., call Preorder(left-subtree)</li><li>Traverse the right subtree, i.e., call Preorder(right-subtree)</li></ol>", "<ol><li>Traverse the left subtree, i.e., call Postorder(left-subtree)</li><li>Traverse the right subtree, i.e., call Postorder(right-subtree)</li><li>Visit the root.</li></ol>", "<ol><li>Create an empty queue q</li><li>temp_node = root</li><li>Loop while temp_node is not NULL</li><li>print temp_node->data</li><li>Enqueue temp_node's children to q</li><li>Dequeue a node from q and assign it's value to temp_node</li></ol>"];
-//Tree representation:
-var tree = {
-    value: 34,
-    elem: "",
-    children: [{
-            value: 23,
-            elem: "",
-            children: [{
-                    value: 12,
-                    elem: "",
-                    children: []
-                },
-                {
-                    value: 04,
-                    elem: "",
-                    children: [{
-                        value: 16,
-                        elem: "",
-                        children: []
-                    }, {
-                        value: 09,
-                        elem: "",
-                        children: []
-                    }]
-                }
-            ]
 
-        },
-        {
-            value: 92,
-            elem: "",
-            children: []
-        }
-    ]
+function visitElement(value) {
+    let node = document.getElementById(value);
+    node.classList.add('visited');
+    ind++;
 }
 
 function preorder() {
@@ -47,10 +32,8 @@ function preorder() {
             return;
         }
         let value = pre[ind];
-        let node = document.getElementById(value);
-        node.classList.add('visited');
+        visitElement(value);
         addOrder(value);
-        ind++;
         if (ind < pre.length) {
             preorder();
         } else {
@@ -66,10 +49,8 @@ function bfs() {
             return;
         }
         let value = breadth[ind];
-        let node = document.getElementById(value);
-        node.classList.add('visited');
+        visitElement(value);
         addOrder(value);
-        ind++;
         if (ind < pre.length) {
             bfs();
         } else {
@@ -84,10 +65,8 @@ function inorder() {
             return;
         }
         let value = inord[ind];
-        let node = document.getElementById(value);
-        node.classList.add('visited');
+        visitElement(value);
         addOrder(value);
-        ind++;
         if (ind < pre.length) {
             inorder();
         } else {
@@ -103,10 +82,8 @@ function postorder() {
             return;
         }
         let value = post[ind];
-        let node = document.getElementById(value);
-        node.classList.add('visited');
+        visitElement(value);
         addOrder(value);
-        ind++;
         if (ind < pre.length) {
             postorder();
         } else {
